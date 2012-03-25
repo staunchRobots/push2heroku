@@ -33,11 +33,11 @@ module Push2heroku
     def url_suffix
       return branch_name if %w(staging production).include?(branch_name)
 
-      [branch_name[0..10], current_user[0..5]].join('-').gsub(/[^0-9a-zA-Z]+/,'-')
+      [branch_name[0..10], current_user[0..5]].join('-').gsub(/[^0-9a-zA-Z]+/,'-').downcase
     end
 
     def url_prefix
-      settings.app_name.gsub(/[^0-9a-zA-Z]+/,'-')
+      settings.app_name.gsub(/[^0-9a-zA-Z]+/,'-').downcase
     end
 
     def build_commands
