@@ -5,12 +5,12 @@ module Push2heroku
       if result.empty?
         raise "It seems your app is not a git repo"
       else
-        result.select { |b| b =~ /^\*/ }.first.split(" ").last.strip.downcase
+        result.select { |b| b =~ /^\*/ }.first.split(" ").last.strip
       end
     end
 
     def current_user
-      `git config user.name`.chop!.downcase
+      `git config user.name`.chop!
     end
   end
 end

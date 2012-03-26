@@ -9,7 +9,7 @@ module Push2heroku
       @current_user = git.current_user
       @settings = ConfigLoader.new('push2heroku.yml').load(branch_name)
       @commands = []
-      @subdomain = "#{url_prefix}-#{url_suffix}"
+      @subdomain = "#{url_prefix}-#{url_suffix}".downcase
     end
 
     def self.process
